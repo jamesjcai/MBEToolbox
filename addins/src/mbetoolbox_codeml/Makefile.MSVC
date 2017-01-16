@@ -1,0 +1,15 @@
+PRGS =  mbe_codeml
+CC = cl # cc, gcc, cl
+CFLAGS =  -O2 -Ot -Oi -Og -G6 -nologo -ML -Za -W3 -DWIN32 -DNDEBUG
+
+DEFINE = #
+LIBS = #-lm -lM
+
+all : $(PRGS)
+ 
+mbe_codeml : mbe_codeml.obj eigen.obj tools.obj
+  $(CC) $(CFLAGS) mbe_codeml.obj eigen.obj tools.obj $(LIBS)
+
+
+mbe_codeml.obj : paml.h mbe_codeml.c treesub.c treespace.c
+  $(CC) $(CFLAGS) -c mbe_codeml.c

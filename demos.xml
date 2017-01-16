@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<demos>
+   <name>MBEToolbox</name>
+   <type>mbetoolbox</type>
+   <icon>$toolbox/matlab/icons/matlabicon.gif</icon>
+   <description>
+   	  &lt;title&gt;MBEToolbox Demos&lt;/title&gt;
+&lt;h2&gt;&lt;font color="#990000"&gt;MBEToolbox Demos&lt;/font&gt;&lt;/h2&gt;
+&lt;p&gt;The MBEToolbox is a collection of MATLAB functions the sequence data 
+analyses of molecular biology and evolution. The toolbox can be used to manipulate
+aligned sequences, calculate pairwise evolutionary distances, estimate substitution 
+rates and conduct statistical analyses of sequences.&lt;/p&gt;
+   </description>
+   <demoitem>
+      <label>Alignment file IO</label>
+      <callback>playshow mbe_demo1</callback>
+   </demoitem>
+   <demoitem>
+      <label>Basic sequence statistics</label>
+      <callback>playshow mbe_demo2</callback>
+   </demoitem>
+   <demoitem>
+      <label>Distance estimation</label>
+      <callback>playshow mbe_demo3</callback>
+   </demoitem>
+   <demoitem>
+      <label>Phylogenetic inferences</label>
+      <callback>playshow mbe_demo4</callback>
+   </demoitem>
+   <demoitem>
+      <label>New features in version 2</label>
+      <callback>playshow mbe_demo5</callback>
+   </demoitem>
+</demos>

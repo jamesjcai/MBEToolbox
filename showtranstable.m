@@ -1,0 +1,38 @@
+function showtranstable()
+%SHOWTRANSTABLE - Displays a Standard Translation Table
+
+% $LastChangedDate: 2013-01-06 12:45:03 -0600 (Sun, 06 Jan 2013) $
+% $LastChangedRevision: 328 $
+% $LastChangedBy: jcai $
+
+disp('=============================================')
+disp('         Standard Translation Table')
+disp('---------------------------------------------')
+disp('Symbol   3-letter    Codons                  ')
+disp(' ')
+disp(' A        Ala         GCT GCC GCA GCG        ')
+disp(' B        Asx                                ')
+disp(' C        Cys         TGT TGC                ')
+disp(' D        Asp         GAT GAC                ')
+disp(' E        Glu         GAA GAG                ')
+disp(' F        Phe         TTT TTC                ')
+disp(' G        Gly         GGT GGC GGA GGG        ')
+disp(' H        His         CAT CAC                ')
+disp(' I        Ile         ATT ATC ATA            ')
+disp(' K        Lys         AAA AAG                ')
+disp(' L        Leu         TTG TTA CTT CTC CTA CTG')
+disp(' M        Met         atg                    ')
+disp(' N        Asn         AAT AAC                ')
+disp(' P        Pro         CCT CCC CCA CCG        ')
+disp(' Q        Gln         CAA CAG                ')
+disp(' R        Arg         CGT CGC CGA CGG AGA AGG')
+disp(' S        Ser         TCT TCC TCA TCG AGT AGC')
+disp(' T        Thr         ACT ACC ACA ACG        ')
+disp(' V        Val         GTT GTC GTA GTG        ')
+disp(' W        Trp         TGG                    ')
+disp(' X        Xxx                                ')
+disp(' Y        Tyr         TAT TAC                ')
+disp(' Z        Glx                                ')
+disp(' *        End         TAA TAG TGA            ')
+disp('=============================================')
+disp(' ')

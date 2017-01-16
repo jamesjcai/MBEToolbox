@@ -1,0 +1,53 @@
+function [fid]=ensemblg2t_v45(gid,speciesid)
+
+%gid=ENSG00000177102
+%e.g., gid='ENSG00000137975', fid=fam50v00000001049
+
+if nargin<2, speciesid=1; end
+%e.g., pid=ENSP00000324595, gid=ENSG00000177102
+
+spename={'Homo_sapiens','Pan_troglodytes',...
+'Mus_musculus','Rattus_norvegicus','Canis_familiaris'};
+
+%tagname={'ENSG','ENSPTRG',...
+%'ENSMUSG','ENSRNOG','ENSCAFG'};
+
+%ptagname={'ENSP','ENSPTRP',...
+%'ENSMUSP','ENSRNOP','ENSCAFP'};
+
+
+fid='';
+urlFetch=sprintf('http://jun2007.archive.ensembl.org/%s/geneview?gene=%s',spename{speciesid},gid);
+
+urlFetch
+try
+    pagecontent=urlread(urlFetch);
+catch
+    %errordlg(lasterr)
+    disp(urlFetch)
+    rethrow(lasterror);
+end
+
+%      <a href="/Homo_sapiens/familyview?family=fam50v00000001049">fam50v00000001049</a> : CALCIUM ACTIVATED CHLORIDE CHANNEL 
+
+%fetchResults = char(strread(pagecontent,'%s','delimiter','\n','whitespace',''));
+%fetchResults = cellstr(fetchResults);
+fetchResults = strread(pagecontent,'%s','delimiter','\n','whitespace','');
+
+numLines = strfind(fetchResults,'ENST');
+numLines=find(~cellfun(@isempty,numLines));
+%numLines = strmatch('     <li class=""bullet""> <a href=""/Homo_sapiens/geneview?db=core;gene=',fetchResults);
+
+if ~(isempty(numLines))
+    theline=fetchResults(numLines,:);
+    theline=theline{1};
+   
+    %[mat, idx] = regexp(theline,'\d','match','start');    % matlab 7 only
+    %[mat2, idx2] = regexp(theline,':','match','start');   % matlab 7 only
+    
+    %theline=strrep(theline,'X','23');
+    %theline=strrep(theline,'Y','24');
+[mat, idx] = regexp(theline,'ENST\d\d\d\d\d\d\d\d\d\d\d');
+
+    fid=theline(mat:idx);
+end

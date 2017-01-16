@@ -1,0 +1,9 @@
+
+Number of codon sites with 0,1,2,3 position differences
+   2 vs.    1     57    29     9     2   0.3076 (0.1431 0.4653)
+
+
+pairwise comparison (Goldman & Yang 1994)
+seq seq        N       S       dN      dS   dN/dS    Paras.
+  2   1    241.0     50.0   0.1316   0.8596   0.1531   0.7701   1.4199   0.1531  -555.730
+

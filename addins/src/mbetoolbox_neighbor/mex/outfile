@@ -1,0 +1,59 @@
+
+  11 Populations
+
+Neighbor-Joining/UPGMA method version 3.63
+
+
+ Neighbor-joining method
+
+ Negative branch lengths allowed
+
+
+  +human-ECP 
+  ! 
+  ! +chimp-ECP 
+  ! ! 
+  ! !   +-orang-ECP 
+  ! !   ! 
+  ! !   !          +human-EDN 
+  9-8   !        +-1 
+  ! !   !      +-2 +chimp-EDN 
+  ! ! +-6      ! ! 
+  ! ! ! !    +-3 +gorla-EDN 
+  ! ! ! !    ! ! 
+  ! ! ! !  +-4 +-orang-EDN 
+  ! +-7 !  ! ! 
+  !   ! +--5 +---macaq-EDN 
+  !   !    ! 
+  !   !    +------tamar-EDN 
+  !   ! 
+  !   +-macaq-ECP 
+  ! 
+  +gorla-ECP 
+
+
+remember: (although rooted by outgroup) this is an unrooted tree!
+
+Between        And            Length
+-------        ---            ------
+   9          human-ECP       0.00172
+   9             8            0.00078
+   8          chimp-ECP       0.00586
+   8             7            0.00946
+   7             6            0.02268
+   6          orang-ECP       0.02641
+   6             5            0.05550
+   5             4            0.02521
+   4             3            0.01988
+   3             2            0.01864
+   2             1            0.00347
+   1          human-EDN       0.00550
+   1          chimp-EDN       0.00276
+   2          gorla-EDN       0.00324
+   3          orang-EDN       0.02614
+   4          macaq-EDN       0.07316
+   5          tamar-EDN       0.11399
+   7          macaq-ECP       0.04603
+   9          gorla-ECP       0.00657
+
+

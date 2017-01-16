@@ -1,0 +1,20 @@
+PRGS =  mbe_codeml 
+CC = cc # cc, gcc, cl
+
+#CFLAGS = -O2
+CFLAGS = -O4
+#CFLAGS = -fast
+
+# for linux running gcc 3 on pentium and athlon
+#CFLAGS = -march=athlon -mcpu=athlon -O4 -funroll-loops -fomit-frame-pointer -finline-functions
+#CFLAGS = -march=pentiumpro -mcpu=pentiumpro -O4 -funroll-loops -fomit-frame-pointer -finline-functions 
+
+LIBS = -lm # -lM
+
+all : $(PRGS)
+
+mbe_codeml : mbe_codeml.o eigen.o tools.o
+	$(CC) $(CFLAGS) -o $@ mbe_codeml.o eigen.o tools.o $(LIBS)
+
+mbe_codeml.o : paml.h mbe_codeml.c treesub.c treespace.c
+	$(CC) $(CFLAGS) -c mbe_codeml.c
