@@ -36,7 +36,7 @@ function [aln]=readphylip_i(filename,seqtype,geneticcode,noise)
 % $LastChangedBy: jcai $
 
 
-if (nargin<4), noise=0; end
+if (nargin<4), noise=1; end
 if nargin < 1
     [filename, pathname] = uigetfile( ...
        {'*.phylip;*.phy', 'Interleaved Phylip Files (*.phylip, *.phy)';
@@ -55,12 +55,12 @@ end
 	file = fopen(filename, 'r');
 	if (noise), disp(['Reading ',filename]); end
 	[nm,x] = fscanf(file,'%d',[1 2]);
-	if (x~=2) error('NOT PHYLIP FORMAT'); end
+	if x~=2, error('NOT PHYLIP FORMAT'); end
 	n=nm(1);
 	m=nm(2);
 	fclose(file);
 
-	txt = textread(filename,'%s','delimiter','\n','whitespace','');
+	txt=textread(filename,'%s','delimiter','\n','whitespace','');
 
 	% NOT WORKING: [n,m]=strread(string(txt(1)),'%d%d','delimiter',' ');
 
@@ -90,7 +90,7 @@ num_seq = n;
 
 	names={};
 
-	for s = 1:num_seq,
+	for s = 1:num_seq
 	    string=txt{s};
 	    token = []; remainder = [];
 	    token = string(1:10);
@@ -98,7 +98,7 @@ num_seq = n;
 	    names{s}=removeblanks(token);
   	    if (noise), disp(token); end
 
-	    for r = s+num_seq:num_seq:size(txt,1),
+	    for r = s+num_seq:num_seq:size(txt,1)
 		% make sure that there aren't sequence numbers at the end
 		remainder = [remainder removeblanks(txt{r})];
 	    end

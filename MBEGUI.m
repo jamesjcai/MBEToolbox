@@ -167,8 +167,8 @@ global aln
 	ButtonName=questdlg('What kind of Phylip format?', ...
 			    'Select Phylip format', ...
 			    'Interleaved','Sequential','Interleaved');
-	switch ButtonName,
-	    case 'Sequential',
+	switch ButtonName
+	    case 'Sequential'
            aln2=readphylip_s;
 	    case 'Interleaved'
            aln2=readphylip_i;
@@ -176,7 +176,7 @@ global aln
 		return;
 	end
 
-if ~(isempty(aln2)),
+if ~(isempty(aln2))
     aln=aln2;
     SetMenuStatus(handles);
 else
@@ -190,7 +190,7 @@ function OpenFASTAFile_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global aln
 aln2=readfasta;
-if ~(isempty(aln2)),
+if ~isempty(aln2)
     aln=aln2;
     SetMenuStatus(handles);
 else
