@@ -32,15 +32,15 @@ end
 
 %	fprintf(['\n']);
 for i=1:n
-	fprintf(['%s '],aln.seqnames{i});
+	fprintf('%s ',aln.seqnames{i});
 for j=i:n
-if (i~=j)
+if i~=j
 	s1=aln.seq(i,:);
 	s2=aln.seq(j,:);
 	D(i,j) = optimseqpairlikeli(model,s1,s2);
-	fprintf(['.']);
+	fprintf('.');
 end
 D(j,i) = D(i,j);
 end
-	fprintf(['\n']);
+	fprintf('\n');
 end

@@ -24,3 +24,5 @@ end
 if (nargout>1),
 	gap = length(s1)-sum(D(:));	% gaps
 end
+
+% D=accumarray([s1(:),s2(:)],1);    Alex Ellen 2017 homework contribution
