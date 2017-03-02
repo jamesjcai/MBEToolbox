@@ -16,10 +16,8 @@ function [aln2]=rmcodongaps(aln)
 % Author: James Cai
 % Email: jcai@tamu.edu
 % Website: http://bioinformatics.org/mbetoolbox/
-% 
-% $LastChangedDate: 2013-01-05 12:04:29 -0600 (Sat, 05 Jan 2013) $
-% $LastChangedRevision: 327 $
-% $LastChangedBy: jcai $
+ 
+
 
 
 if (isstruct(aln)),
