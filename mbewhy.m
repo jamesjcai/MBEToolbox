@@ -1,4 +1,4 @@
-function [] = mbewhy
+function mbewhy
 
 % $LastChangedDate: 2013-01-06 12:45:03 -0600 (Sun, 06 Jan 2013) $
 % $LastChangedRevision: 328 $
@@ -75,7 +75,7 @@ terms(nc)=[];
 
 b(1)=lower(b(1));
 c(1)=lower(c(1));
-%a=[a,' is/are associated with ',b,' and/or ',c,'?'];
-a=[a,' | ',b,' | ',c];
+a=[a,' is/are associated with ',b,' and/or ',c,'?'];
+%a=[a,' | ',b,' | ',c];
 a(1)=upper(a(1));
 disp(a)

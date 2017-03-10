@@ -17,10 +17,7 @@ function [aln2]=extractsegregatingsites(aln,biallelic)
 % Author: James Cai
 % Email: jcai@tamu.edu
 % Website: http://bioinformatics.org/mbetoolbox/
-% 
-% $LastChangedDate: 2013-01-05 12:04:29 -0600 (Sat, 05 Jan 2013) $
-% $LastChangedRevision: 327 $
-% $LastChangedBy: jcai $
+
 
 
 if nargin<2, biallelic=0; end
@@ -41,10 +38,10 @@ if (isstruct(aln)),
 	for j=1:m
 		minnt = min(aln.seq(:,j));
 		maxnt = max(aln.seq(:,j));
-		if (minnt>0 & maxnt < 5)
+		if minnt>0 && maxnt < 5
 			if (minnt~=maxnt)
-			k = k+1;
-			aln2.seq(:,k) = aln.seq(:,j);
+                k = k+1;
+                aln2.seq(:,k) = aln.seq(:,j);
             end
 		end
     end
@@ -62,10 +59,10 @@ else
 	for j=1:m
 		minnt = min(seq(:,j));
 		maxnt = max(seq(:,j));
-		if (minnt>0 & maxnt < 5)
-			if (minnt~=maxnt)
-			k = k+1;
-			seq2(:,k) = seq(:,j);
+		if (minnt>0 && maxnt < 5)
+			if minnt~=maxnt
+                k = k+1;
+                seq2(:,k) = seq(:,j);
             end
 		end
     end
@@ -73,22 +70,16 @@ else
     if biallelic
         [seq2]=i_onlybiallelic(seq2);
     end
-
     aln2=seq2;
 end
 
 
 function [seq2]=i_onlybiallelic(seq2)
         idx=[];
-        for (k=1:size(seq2,2))
-            if (length(unique(seq2(:,k)))>2)
+        for k=1:size(seq2,2)
+            if length(unique(seq2(:,k)))>2
                 idx=[idx,k];
             end
         end
         seq2(:,idx)=[];
-
-
-
-
-
 
