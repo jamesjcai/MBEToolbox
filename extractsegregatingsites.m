@@ -22,7 +22,7 @@ function [aln2]=extractsegregatingsites(aln,biallelic)
 
 if nargin<2, biallelic=0; end
 
-if (isstruct(aln)),
+if isstruct(aln)
 %	if ~(isfield(aln,'seqtype'))
 %            aln2.seqtype=1;
 %	else
@@ -31,55 +31,51 @@ if (isstruct(aln)),
 %	aln2.geneticcode = 0;
 %	aln2.seqnames =	 aln.seqnames;
 
-    aln2=aln;
-	[n,m] = size(aln.seq);
-	aln2.seq=zeros(n,0);
-	k=0;
+aln2=aln;
+[n,m]=size(aln.seq);
+aln2.seq=zeros(n,0);
+k=0;
+
 	for j=1:m
-		minnt = min(aln.seq(:,j));
-		maxnt = max(aln.seq(:,j));
-		if minnt>0 && maxnt < 5
+		minnt=min(aln.seq(:,j));
+		maxnt=max(aln.seq(:,j));
+		if minnt>0 && maxnt<5
 			if (minnt~=maxnt)
-                k = k+1;
-                aln2.seq(:,k) = aln.seq(:,j);
+                k=k+1;
+                aln2.seq(:,k)=aln.seq(:,j);
             end
-		end
+        end
     end
-
-    if biallelic
-        aln2.seq=i_onlybiallelic(aln2.seq);
-    end
+    if biallelic, aln2.seq=i_onlybiallelic(aln2.seq); end
+    
 else
-
-    seq=aln;
-	[n,m] = size(seq);
-	seq2=zeros(n,0);
-
-	k = 0;
+    
+seq=aln;
+[n,m] = size(seq);
+seq2=zeros(n,0);
+k=0;
 	for j=1:m
-		minnt = min(seq(:,j));
-		maxnt = max(seq(:,j));
-		if (minnt>0 && maxnt < 5)
+		minnt=min(seq(:,j));
+		maxnt=max(seq(:,j));
+		if (minnt>0 && maxnt<5)
 			if minnt~=maxnt
-                k = k+1;
-                seq2(:,k) = seq(:,j);
+                k=k+1;
+                seq2(:,k)=seq(:,j);
             end
 		end
     end
-
-    if biallelic
-        [seq2]=i_onlybiallelic(seq2);
-    end
+    if biallelic, seq2=i_onlybiallelic(seq2); end
     aln2=seq2;
 end
 
+end
 
 function [seq2]=i_onlybiallelic(seq2)
-        idx=[];
-        for k=1:size(seq2,2)
-            if length(unique(seq2(:,k)))>2
-                idx=[idx,k];
-            end
+    idx=[];
+    for k=1:size(seq2,2)
+        if length(unique(seq2(:,k)))>2
+            idx=[idx,k];
         end
-        seq2(:,idx)=[];
-
+    end
+    seq2(:,idx)=[];
+end
