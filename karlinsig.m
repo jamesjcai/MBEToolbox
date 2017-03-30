@@ -49,7 +49,7 @@ S=cat(2,S,revcomseq(S));
 [n,m] = size(S);
 m=m-mod(m,2);
 
-for (x=1:2:m),
+for x=1:2:m
       K(S(1,x),S(1,x+1))=K(S(1,x),S(1,x+1))+1;
 end
 Kn=K;
@@ -61,8 +61,8 @@ F=F./sum(F);
 
 
 FF=zeros(4);
-for (i=1:4),
-for (j=1:4),
+for i=1:4
+for j=1:4
 	FF(i,j)=F(i)*F(j);
 end
 end
@@ -70,4 +70,3 @@ end
 Kf=K./FF;
 
 warning(ws);
-
