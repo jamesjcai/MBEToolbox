@@ -61,7 +61,7 @@ Temporary Items
 *.m~
 
 # Compiled MEX binaries (all platforms)
-*.mex*
+# *.mex*
 
 # Simulink Code Generation
 slprj/
