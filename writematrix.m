@@ -59,7 +59,7 @@ if nargin<3, casenames = ''; end
 lc = size(casenames,2);
 
 eval('isempty(filename);','filename=[];');
-if nargin < 4 | isempty(filename)
+if nargin < 4 || isempty(filename)
 
     [F,P,I] = uiputfile( ...
        {'*.txt', 'Text (Tab delimited) (*.txt)';
@@ -68,12 +68,12 @@ if nargin < 4 | isempty(filename)
 	if ~(F), return; end
 
 	if (I==1)
-		if (isempty(find(F=='.'))),
+		if (isempty(find(F=='.', 1)))
 		F=[F,'.txt'];
 		end
 		delimiter = sprintf('\t');
 	elseif (I==2)
-		if (isempty(find(F=='.'))),
+		if (isempty(find(F=='.', 1)))
 		F=[F,'.csv'];
 		end
 		delimiter = sprintf(',');
@@ -85,7 +85,7 @@ end
 
 [nobs, nvars] = size(data);
 
-if ~ischar(casenames) & ~isempty(casenames)
+if ~ischar(casenames) && ~isempty(casenames)
    error('CASENAMES must be a character array.');
 end
 if ~ischar(varnames) & ~isempty(varnames)
