@@ -13,7 +13,7 @@ function [Q] = composeQ(R,PI)
 % $LastChangedBy: jcai $
 
 
-error(nargchk(2, 2, nargin));
+narginchk(2, 2);
 
 if (trace(R)~=0)
 	error('error in R');
