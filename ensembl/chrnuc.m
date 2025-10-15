@@ -57,7 +57,7 @@ function [strs,s] = i_getnuc(chorom, startn, endn,sptxt)
                 chorom, startn, endn);
             
 
-http://useast.ensembl.org/Homo_sapiens/Export/Output/Location?db=core;flank3_display=0;flank5_display=0;output=fasta;r=6:133017695-133161157;strand=feature;coding=yes;cdna=yes;peptide=yes;utr3=yes;exon=yes;intron=yes;genomic=unmasked;utr5=yes;_format=Text            
+% http://useast.ensembl.org/Homo_sapiens/Export/Output/Location?db=core;flank3_display=0;flank5_display=0;output=fasta;r=6:133017695-133161157;strand=feature;coding=yes;cdna=yes;peptide=yes;utr3=yes;exon=yes;intron=yes;genomic=unmasked;utr5=yes;_format=Text            
             
             
     url=strcat(base, url);

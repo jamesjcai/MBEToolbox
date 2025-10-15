@@ -28,10 +28,10 @@ end
 pos=zeros(1,n);
 pos(1,1)=length(aln.seq);
 
-for (k=2:n),
+for (k=2:n)
       alnk=alnarray(1,k);
 	if (rmgap)
-		if (alnk.seqtype=2)
+		if (alnk.seqtype==2)
 		   if (hasgap(alnk)), alnk=rmcodongaps(alnk); end
 		else
 		   if (hasgap(alnk)), alnk=rmgaps(alnk); end
